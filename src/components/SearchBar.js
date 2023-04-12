@@ -1,21 +1,16 @@
 import React, { useState } from "react";
 
-const SearchBar = ({ data }) => {
+const SearchBar = ({ getSearchTerm }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleInputChange = (event) => {
+    if(searchTerm.length < 1 && event.target.value.trim().length < 1) return
     setSearchTerm(event.target.value);
+    getSearchTerm(event.target.value)
   };
 
-  const filteredData = data.filter(
-    (item) =>
-      item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.lastName.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   return (
-    <div className=' bg-gradient-to-b from-pink-500 to-yellow-500 py-[3rem]'>
+    <div className=' py-[3rem]'>
       <div className="flex justify-center h-[3rem] mb-[3rem] ">
       <input
       className="w-10/12 pl-[2rem] border-none rounded-lg outline-none"
@@ -25,7 +20,8 @@ const SearchBar = ({ data }) => {
         onChange={handleInputChange}
       />
       </div>
-      <div className="grid grid-cols-2 gap-4 w-10/12 mx-auto">
+      {/* This is the searchbar component and should contain just the input, try enjoying the component feature of React */}
+      {/* <div className="grid grid-cols-2 gap-4 w-10/12 mx-auto">
       {filteredData.map(e=>{
     return(
         <div className=' bg-white px-[1.5rem] py-[1.5rem] flex gap-3
@@ -44,7 +40,7 @@ const SearchBar = ({ data }) => {
         </div>
     )
    })}
-      </div>
+      </div> */}
     </div>
   );
 };
