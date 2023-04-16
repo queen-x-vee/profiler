@@ -15,7 +15,7 @@ const SearchBar = ({ data }) => {
   );
 
   return (
-    <div className=' bg-gradient-to-b from-pink-500 to-yellow-500 py-[3rem]'>
+    <div className='min-h-screen bg-gradient-to-b from-pink-500 to-yellow-500 py-[3rem]'>
       <div className="flex justify-center h-[3rem] mb-[3rem] ">
       <input
       className="w-10/12 pl-[2rem] border-none rounded-lg outline-none"
